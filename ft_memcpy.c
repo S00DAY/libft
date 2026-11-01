@@ -9,7 +9,6 @@
 /*   Updated: 2026/10/31 16:16:11 by soulkhat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
@@ -18,11 +17,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	const unsigned char	*ps;
 	unsigned char		*pd;
 
-	if (!dest && !src)
-		return (dest);
 	i = 0;
-	ps = (const unsigned char *)src;
-	pd = (unsigned char *)dest;
+	ps = src;
+	pd = dest;
 	while (i < n)
 	{
 		pd[i] = ps[i];
