@@ -81,8 +81,5 @@ fclean: clean
 
 re: fclean all
 
-so:
-	gcc -nostartfiles -shared -o libft.so $(OBJS) -lbsd
-
 .PHONY: all clean fclean re
 
