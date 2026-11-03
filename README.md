@@ -1,114 +1,60 @@
+*This project has been created as part of the 42 curriculum by SOULKHAT.*
+
 # Libft
 
-*A custom C library developed as part of the 42 / 1337 curriculum.*
+## Description
 
-It contains reimplementations of standard C library functions, additional utility functions, and linked list operations.
+Libft is one of the first projects in the 42 curriculum. Its objective is to create a custom C library (`libft.a`) by reimplementing a collection of standard C library functions and developing additional utility functions.
 
-The purpose of this project is to understand the fundamentals of C programming, including memory management, pointers, strings, and data structures, while building a reusable library for future projects.
+Since the use of many standard library functions is restricted in future 42 projects, Libft provides a reusable foundation for upcoming assignments.
 
-## Index
+Through this project, the goal is to develop a deeper understanding of C programming, memory management, pointers, string manipulation, and data structures by implementing these functions from scratch.
 
-- [Function Reference](#function-reference)
-  - [Part 1: Libc Functions](#part-1-libc-functions)
-  - [Part 2: Additional Functions](#part-2-additional-functions)
-  - [Bonus: Linked List Functions](#bonus-linked-list-functions)
-- [Building the Library](#building-the-library)
-- [Usage](#usage)
-- [Requirements](#requirements)
+### Library Contents
 
-## Function Reference
+The library is organized into three main sections.
 
-### Part 1: Libc Functions
+#### Part 1 — Libc Functions
 
-These functions reproduce the behavior of their standard C library counterparts.
+Reimplementations of selected standard C library functions, using the `ft_` prefix.
 
-#### `<ctype.h>`
+- **Character Classification and Conversion:** `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`
+- **String Manipulation:** `ft_strlen`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strlcpy`, `ft_strlcat`, `ft_strnstr`, `ft_strdup`
+- **Memory Manipulation:** `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`
+- **Memory Allocation and Conversion:** `ft_calloc`, `ft_atoi`
 
-| Function | Description |
-|---|---|
-| `ft_isalpha` | Checks whether a character is alphabetic. |
-| `ft_isdigit` | Checks whether a character is a decimal digit. |
-| `ft_isalnum` | Checks whether a character is alphanumeric. |
-| `ft_isascii` | Checks whether a value belongs to the ASCII character set. |
-| `ft_isprint` | Checks whether a character is printable. |
-| `ft_toupper` | Converts a lowercase letter to uppercase. |
-| `ft_tolower` | Converts an uppercase letter to lowercase. |
+#### Part 2 — Additional Functions
 
-#### `<string.h>` / `<strings.h>`
+A collection of utility functions that extend the library's functionality.
 
-| Function | Description |
-|---|---|
-| `ft_strlen` | Calculates the length of a string. |
-| `ft_memset` | Fills a memory area with a specified byte. |
-| `ft_bzero` | Sets a memory area to zero. |
-| `ft_memcpy` | Copies a memory area from source to destination. |
-| `ft_memmove` | Copies memory while handling overlapping regions. |
-| `ft_strlcpy` | Copies a string with destination size protection. |
-| `ft_strlcat` | Concatenates strings with destination size protection. |
-| `ft_strchr` | Finds the first occurrence of a character in a string. |
-| `ft_strrchr` | Finds the last occurrence of a character in a string. |
-| `ft_strncmp` | Compares two strings up to a specified number of characters. |
-| `ft_memchr` | Searches for a byte in a memory area. |
-| `ft_memcmp` | Compares two memory areas. |
-| `ft_strnstr` | Searches for a substring within a limited length. |
-| `ft_strdup` | Creates a dynamically allocated copy of a string. |
+- **String Utilities:** `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`, `ft_itoa`, `ft_strmapi`, `ft_striteri`
+- **File Descriptor Output:** `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`
 
-#### `<stdlib.h>`
+#### Part 3 — Linked List Functions
 
-| Function | Description |
-|---|---|
-| `ft_atoi` | Converts a string into an integer. |
-| `ft_calloc` | Allocates memory and initializes it to zero. |
+Functions for creating, manipulating, and managing singly linked lists through the custom `t_list` structure.
 
-### Part 2: Additional Functions
+- `ft_lstnew`
+- `ft_lstadd_front`
+- `ft_lstsize`
+- `ft_lstlast`
+- `ft_lstadd_back`
+- `ft_lstdelone`
+- `ft_lstclear`
+- `ft_lstiter`
+- `ft_lstmap`
 
-These functions provide additional utilities for string manipulation, conversions, and file descriptor output.
+## Instructions
 
-#### String Functions
+### Requirements
 
-| Function | Description |
-|---|---|
-| `ft_substr` | Extracts a substring from a string. |
-| `ft_strjoin` | Concatenates two strings into a newly allocated string. |
-| `ft_strtrim` | Removes specified characters from the beginning and end of a string. |
-| `ft_split` | Splits a string into an array of strings using a delimiter. |
-| `ft_strmapi` | Applies a function to each character and creates a new string. |
-| `ft_striteri` | Applies a function to each character using its index. |
+- C compiler (`cc`).
+- GNU Make.
+- Unix-like environment.
 
-#### Conversion Functions
+### Compilation
 
-| Function | Description |
-|---|---|
-| `ft_itoa` | Converts an integer into a dynamically allocated string. |
-
-#### File Descriptor Functions
-
-| Function | Description |
-|---|---|
-| `ft_putchar_fd` | Writes a character to a specified file descriptor. |
-| `ft_putstr_fd` | Writes a string to a specified file descriptor. |
-| `ft_putendl_fd` | Writes a string followed by a newline. |
-| `ft_putnbr_fd` | Writes an integer to a specified file descriptor. |
-
-### Bonus: Linked List Functions
-
-The bonus section implements operations for managing singly linked lists using the `t_list` structure.
-
-| Function | Description |
-|---|---|
-| `ft_lstnew` | Creates a new list node. |
-| `ft_lstadd_front` | Adds a node at the beginning of a list. |
-| `ft_lstsize` | Counts the number of nodes in a list. |
-| `ft_lstlast` | Returns the last node of a list. |
-| `ft_lstadd_back` | Adds a node at the end of a list. |
-| `ft_lstdelone` | Deletes a single node using a specified deletion function. |
-| `ft_lstclear` | Deletes and frees an entire list. |
-| `ft_lstiter` | Applies a function to the content of each node. |
-| `ft_lstmap` | Creates a new list by applying a function to each node's content. |
-
-## Building the Library
-
-Clone the repository:
+Clone the repository and navigate to the project directory:
 
 ```bash
 git clone <repository-url>
@@ -121,44 +67,100 @@ Compile the library:
 make
 ```
 
-The Makefile provides the following rules:
+The compilation generates a static library named `libft.a`.
 
-| Command | Description |
+### Makefile Rules
+
+| Rule | Description |
 |---|---|
-| `make` | Compiles the source files and creates `libft.a`. |
-| `make all` | Builds the library. |
-| `make clean` | Removes object files (`.o`). |
-| `make fclean` | Removes object files and the library. |
-| `make re` | Rebuilds the library from scratch. |
+| `$(NAME)` | Builds the library target. |
+| `all` | Compiles all library functions. |
+| `clean` | Removes object files. |
+| `fclean` | Removes object files and the generated library. |
+| `re` | Rebuilds the library from scratch. |
 
-## Usage
+The Makefile uses the following compilation flags:
 
-Include the library header in your source files:
+```bash
+-Wall -Wextra -Werror
+```
+
+It is designed to avoid unnecessary relinking.
+
+### Usage
+
+To use Libft in another C project:
+
+1. Include `libft.h` in your source files:
 
 ```c
 #include "libft.h"
 ```
 
-Compile your program and link it with the library:
+2. Compile your source files and link against the library:
 
 ```bash
-cc -Wall -Wextra -Werror main.c -I. ./libft.a -o program
+cc -Wall -Wextra -Werror main.c -I. -L. -lft -o program
 ```
 
-Alternatively:
+## Technical Requirements
 
-```bash
-cc -Wall -Wextra -Werror main.c -L. -lft -I. -o program
-```
+- All source code must be written in C.
+- All submitted files and functions must comply with the 42 Norm.
+- Compilation must use `cc` with `-Wall -Wextra -Werror`.
+- The Makefile must provide the required rules: `$(NAME)`, `all`, `clean`, `fclean`, and `re`.
+- Functions must not terminate unexpectedly due to errors such as segmentation faults, bus errors, or double frees, except in cases of undefined behavior.
+- Dynamically allocated memory must be properly released when necessary.
+- The Makefile must avoid unnecessary relinking.
 
-## Requirements
+## Testing
 
-- C compiler (`cc`, `gcc`, or `clang`).
-- GNU Make.
-- Compliance with the 42 Norm.
-- Compilation with `-Wall -Wextra -Werror`.
-- Proper memory management and resource cleanup.
+Testing is an important part of the development process. Test programs can be used to verify function behavior, detect errors, and explore edge cases.
+
+Recommended testing includes:
+
+- Empty strings and single-character strings.
+- NULL pointer handling according to each function's specifications.
+- Memory allocation failures.
+- Integer boundaries and overflow-related cases.
+- Overlapping memory regions.
+- Empty and multiple-node linked lists.
+- Memory leaks and invalid memory operations.
+
+Test programs are useful during development and evaluation practice, but do not need to be submitted unless explicitly required.
+
+## Resources
+
+The following references were consulted during the project:
+
+- [42 Libft Subject](https://cdn.intra.42.fr/pdf/pdf/227634/en.subject.pdf) — Official project requirements and function specifications.
+- [Linux Manual Pages](https://man7.org/linux/man-pages/) — Documentation for standard library functions and system calls.
+- [GNU C Library Manual](https://www.gnu.org/software/libc/manual/) — Reference for C library functions and their behavior.
+
+### AI Usage
+
+AI tools were used as supplementary learning, debugging, and documentation resources throughout the project.
+
+Their use included:
+
+- **Concept clarification:** Understanding C concepts such as pointers, pointer arithmetic, memory allocation, string manipulation, and linked lists.
+- **Function specifications:** Clarifying requirements, expected behavior, and possible edge cases for Libft functions.
+- **Debugging and code review:** Discussing implementation logic, investigating compilation errors, and reviewing code snippets to identify potential problems.
+- **Testing guidance:** Exploring test cases and boundary conditions to improve the understanding of function behavior.
+- **Documentation:** Using AI assistance to organize, structure, review, and write this README, including descriptions of the library, compilation instructions, and resource references.
+
+AI-generated suggestions were treated as assistance rather than unquestioned solutions. They were reviewed critically, and implementation decisions were evaluated through independent reasoning and testing.
+
+The purpose of using AI was to support the learning process, not to replace understanding or problem-solving. AI tools can produce incorrect or incomplete information, especially when dealing with low-level programming and memory management, so their output must always be verified.
+
+Peer learning, independent research, and understanding the underlying concepts remain essential parts of the 42 learning process.
+
+## Submission
+
+The project is submitted through the assigned Git repository. Only the contents of the submitted repository are considered during evaluation.
 
 ---
 
-**Libft — Reimplementing the fundamentals of C, one function at a time.**
+<p align="center">
+    <em>Built from scratch in C as part of the 42 / 1337 curriculum.</em>
+</p>
